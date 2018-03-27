@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y openssh-client
+      - tar xzvf package/*.tgz
+
+  pre_build:
+    commands:
+      - make plan
+
+  build:
+    commands:
+      - make up
+
+  post_build:
+    commands:
+      - echo "Done"

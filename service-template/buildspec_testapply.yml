@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y openssh-client
+      - gem install inspec
+      - tar xzvf package/*.tgz
+      - git --version
+
+  pre_build:
+    commands:
+      - make plan
+
+  build:
+    commands:
+      - make up
+      - make test
+
+  post_build:
+    commands:
+      - make destroy

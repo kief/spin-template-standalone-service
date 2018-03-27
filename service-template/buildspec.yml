@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y openssh-client
+
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+
+  build:
+    commands:
+      - make build
+
+  post_build:
+    commands:
+      - make package
+
+artifacts:
+  files:
+    - package/*.tgz
+    - buildspec_apply.yml
+    - buildspec_testapply.yml
+
+

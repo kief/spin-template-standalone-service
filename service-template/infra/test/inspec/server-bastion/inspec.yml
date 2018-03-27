@@ -1,0 +1,9 @@
+name: bastion servers
+title: Controls for bastion server configuration
+maintainer: Kief Morris
+copyright: Kief Morris
+copyright_email: cloudspin@kief.com
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0
+description: Controls to test what is configured on the bastion server
