@@ -13,4 +13,23 @@ Usage:
 3. Run `make` to see what you can do with it.
 
 
+```
+curl -LfOs https://github.com/kief/spin-template-standalone-service/archive/latest.tar.gz
+tar xzf latest.tar.gz spin-template-standalone-service-latest/service-template
+mv spin-template-standalone-service-latest/service-template myservice
+rmdir spin-template-standalone-service-latest
+cp myservice/example-service-configuration.mk myservice/service-configuration.mk
+```
+
+Updating:
+---------
+
+Download the latest template files and copy them over your project folder. Do this at your own risk!
+
+```
+curl -LfOs https://github.com/kief/spin-template-standalone-service/archive/latest.tar.gz
+tar xzf latest.tar.gz spin-template-standalone-service-latest/service-template
+rsync -plrv spin-template-standalone-service-latest/service-template/ ./myservice/
+```
+
 

@@ -6,7 +6,7 @@ include $(MY_DIR)/shared-variables.mk
 
 plan-delivery: plan-code-repository plan-pipeline ## See what's involved in setting up the delivery infrastructure
 
-apply-delivery: setup-code-repository setup-pipeline ## Setup each service project's source repo and pipelines
+setup-delivery: setup-code-repository setup-pipeline ## Setup each service project's source repo and pipelines
 
 load-delivery: load-new-repo ## Load source code into the service project repositories
 
