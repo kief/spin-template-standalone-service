@@ -1,6 +1,6 @@
 
 resource "aws_iam_role" "terraform_codebuild_role" {
-  name = "${var.service}-${var.component}-${var.estate_id}-TestApply_Terraform_Role"
+  name = "${var.service}-${var.component}-${var.estate_id}-TestApply"
 
   assume_role_policy = <<EOF
 {
@@ -20,7 +20,7 @@ EOF
 
 
 resource "aws_iam_policy" "terraform_codebuild_policy" {
-  name        = "${var.service}-${var.component}-${var.estate_id}-TestApply_Terraform_Policy"
+  name        = "${var.service}-${var.component}-${var.estate_id}-TestApply"
   path        = "/service-role/"
   description = "Policies needed by the CodeBuild project for TestApply the ${var.service}-${var.component}-${var.estate_id} project"
 
@@ -58,7 +58,7 @@ POLICY
 
 
 resource "aws_iam_policy_attachment" "terraform_codebuild_attachment" {
-  name       = "${var.service}-${var.component}-${var.estate_id}-TestApply_Terraform_Attachment"
+  name       = "${var.service}-${var.component}-${var.estate_id}-TestApply"
   policy_arn = "${aws_iam_policy.terraform_codebuild_policy.arn}"
   roles      = ["${aws_iam_role.terraform_codebuild_role.id}"]
 }

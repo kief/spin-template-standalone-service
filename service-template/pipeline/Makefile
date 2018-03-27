@@ -29,6 +29,9 @@ apply: init ## Create or update infrastructure
 test: ## Test the infrastructure
 	cd ./test && PIPELINE_NAME=$(SERVICE)-$(COMPONENT)-$(ESTATE_ID)-pipeline ./test-pipeline.sh
 
+vars:
+	@echo "$(TERRAFORM_VARS)"
+
 out:
 	cd ./src && terraform output $(TERRAFORM_VARS)
 

@@ -1,6 +1,6 @@
 
 resource "aws_iam_role" "packaging_codebuild_role" {
-  name = "${var.service}-${var.component}-${var.estate_id}_Packaging_Codebuild_Role"
+  name = "${var.service}-${var.component}-${var.estate_id}_Packager"
 
   assume_role_policy = <<EOF
 {

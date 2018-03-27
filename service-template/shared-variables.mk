@@ -7,7 +7,7 @@ MY_IP=$(shell curl -s icanhazip.com)
 AWS_ACCOUNT_ID:=$(shell aws sts get-caller-identity --output text --query Account)
 STATE_BUCKET_NAME=spin-reference-$(AWS_ACCOUNT_ID)
 STATE_PATH="estate-$(ESTATE_ID)/component-$(COMPONENT)/service-$(SERVICE)/deployment-$(DEPLOYMENT_ID)/$(FUNCTION).tfstate"
-ARTEFACT_BUCKET_NAME=$(shell echo artefacts-$(ESTATE_ID)-$(COMPONENT)-$(SERVICE)-$(AWS_ACCOUNT_ID) | tr '[:upper:]' '[:lower:]')
+ARTEFACT_BUCKET_NAME=$(shell echo repo-$(ESTATE_ID)-$(COMPONENT)-$(SERVICE)-$(AWS_ACCOUNT_ID) | tr '[:upper:]' '[:lower:]' | cut -c 1-63)
 
 ARTEFACT_NAME=$(COMPONENT)-$(SERVICE)
 BUILD_VERSION=1.0.$(shell date +%Y%m%d%I%M%S)
