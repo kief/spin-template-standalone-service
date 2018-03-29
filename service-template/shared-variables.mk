@@ -5,7 +5,7 @@ DEPLOYMENT_ID?=sandbox
 MY_IP=$(shell curl -s icanhazip.com)
 
 AWS_ACCOUNT_ID:=$(shell aws sts get-caller-identity --output text --query Account)
-STATE_BUCKET_NAME=spin-reference-$(AWS_ACCOUNT_ID)
+STATE_BUCKET_NAME=$(shell echo "statebucket-$(ESTATE_ID)-$(AWS_ACCOUNT_ID)" | tr '[:upper:]' '[:lower:]' | cut -c 1-63)
 STATE_PATH="estate-$(ESTATE_ID)/component-$(COMPONENT)/service-$(SERVICE)/deployment-$(DEPLOYMENT_ID)/$(FUNCTION).tfstate"
 ARTEFACT_BUCKET_NAME=$(shell echo repo-$(ESTATE_ID)-$(COMPONENT)-$(SERVICE)-$(AWS_ACCOUNT_ID) | tr '[:upper:]' '[:lower:]' | cut -c 1-63)
 
